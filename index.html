@@ -8,7 +8,7 @@
     <style>
         /* --- 1. THEME VARIABLES (ZEN GARDEN CORE) --- */
         :root {
-            --primary: #f45db8; --secondary: #FFD93D; --accent: #FF6B6B;
+            --primary: #c6324d; --secondary: #FFD93D; --accent: #FF6B6B;
             --glass: rgba(255, 255, 255, 0.85);
             --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             --text: #444; --shadow: 0 20px 40px rgba(0,0,0,0.08);
@@ -44,7 +44,7 @@
         }
 
         h1 { font-size: 2rem; font-weight: bold; }
-        h2 { font-size: 1.5rem; font-weight: bold; }
+        h2 { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
         h3 { font-size: 1.25rem; font-weight: bold; }
         p { font-size: 1rem; line-height: 1.5; }
 
@@ -155,7 +155,7 @@
         .gallery-item:hover img { transform: scale(1.1); filter: brightness(0.8); }
         .caption { 
             position: absolute; bottom: -50px; left: 0; width: 100%; background: rgba(0,0,0,0.6); 
-            color: white; padding: 10px; text-align: center; transition: 0.3s; 
+            color: white; padding: 10px; text-align: center; transition: 0.3s; box-sizing: border-box;
         }
         .gallery-item:hover .caption { bottom: 0; }
 
@@ -174,8 +174,8 @@
         .dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; }
 
         /* --- 8. FORMS & BUTTONS --- */
-        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; }
-        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; box-sizing: border-box; }
+        .btn-submit { width: 100%; background: var(--primary); color: white; border: none; padding: 15px; border-radius: 10px; font-weight: 700; cursor: pointer; transition: 0.3s; box-sizing: border-box; }
         .btn-submit:active { background: #25D366; transform: scale(0.98); }
 
         .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 2000; }
@@ -217,6 +217,7 @@
                 <button onclick="scrollToSection('about')">Tentang</button>
                 <button onclick="scrollToSection('gallery')">Galeri</button>
                 <button onclick="scrollToSection('calendar')">Kalender</button>
+                <a href="https://erapor.sipenggeng.my.id" target="_blank" style="display: block; width: 100%; margin: 5px 0; text-align: left; padding: 5px 10px; border: none; background: transparent; cursor: pointer; border-radius: 10px; transition: all 0.3s ease; color: var(--text); font-weight: 500; font-size: 0.9rem; text-decoration: none;" onmouseover="this.style.background = 'var(--primary)'; this.style.color = 'white';" onmouseout="this.style.background = 'transparent'; this.style.color = 'var(--text)';">E-Rapor</a>
             </div>
         </div>
         <div class="theme-menu">
@@ -230,7 +231,7 @@
     </nav>
 
     <header>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg/250px-Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg.png" alt="Logo Kemdikbud" class="logo fade-in">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg/250px-Logo_of_Ministry_of_Education_and_Culture_of_Republic_of_Indonesia.svg.png" alt="Logo Kemendikdasmen" class="logo fade-in">
         <h1 class="fade-in">SDN 100705 Sipenggeng</h1>
         <p class="fade-in" style="animation-delay: 0.2s;">Belajar itu menyenangkan!</p>
     </header>
@@ -271,9 +272,9 @@
             <h3>Hubungi Kami</h3>
             <p>Kirim pesan ke WhatsApp kami:</p>
             <form id="contactForm">
-                <input type="text" id="waName" placeholder="Your Name" required>
-                <textarea id="waMsg" placeholder="Your Message..." rows="3" required></textarea>
-                <button type="submit" class="btn-submit">Buka Whatsapp</button>
+                <input type="text" id="waName" placeholder="Nama" required>
+                <textarea id="waMsg" placeholder="Pesan" rows="3" required></textarea>
+                <button type="submit" class="btn-submit">Kirim Pesan</button>
             </form>
             
             <div style="margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px; text-align: center;">
