@@ -29,38 +29,6 @@
             --text: #1B4332;
         }
 
-        body.zen-theme {
-            --primary: #ea2e49; --secondary: #77c4d3; --accent: #daede2;
-            --glass: rgba(255,255,255,0.9);
-            --bg-gradient: linear-gradient(135deg, #daede2 0%, #77c4d3 100%);
-            --text: #333;
-            font-family: "tablet-gothic", verdana, arial, sans-serif;
-        }
-
-        body.zen-theme h1 {
-            background: #ea2e49; color: #fff; display: inline-block; margin-bottom: 1em; padding: 0.5em 1em;
-        }
-
-        body.zen-theme h2 {
-            color: #fff; font-weight: 900; font-size: 3em; letter-spacing: 1px; line-height: 1em;
-        }
-
-        body.zen-theme h3 {
-            font-family: "tablet-gothic-condensed", "arial narrow", arial, verdana, sans-serif; font-weight: 200; font-size: 1.5em; letter-spacing: 1px;
-        }
-
-        body.zen-theme .content-card {
-            background: rgba(255,255,255,0.9);
-        }
-
-        body.zen-theme aside.content-card {
-            background: rgba(246,247,146,0.9);
-        }
-
-        body.zen-theme footer {
-            background: rgba(246,247,146,0.9);
-        }
-
         /* --- 2. ANIMATIONS --- */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -80,52 +48,12 @@
             padding: 15px 30px; display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .main-menu {
-            position: relative;
-        }
-        .main-menu button {
-            margin: 0 10px; padding: 8px 15px; border: none; background: transparent; cursor: pointer;
-            color: var(--primary); font-weight: 700; font-size: 0.9rem; border-radius: 20px; transition: all 0.3s ease;
-        }
-        .main-menu button:hover {
-            background: var(--primary); color: white; transform: translateY(-2px);
-        }
-        .main-dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border-radius: 10px;
-            padding: 10px;
-            box-shadow: var(--shadow);
-            z-index: 1001;
-        }
-        .main-dropdown button {
-            display: block;
-            width: 100%;
-            margin: 5px 0;
-            text-align: left;
-            padding: 5px 10px;
-            border: none; background: transparent; cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            color: var(--text);
-            font-weight: 500; font-size: 0.9rem;
-        }
-        .main-dropdown button:hover {
-            background: var(--primary); color: white;
-        }
         .theme-menu {
             position: relative;
         }
         .theme-menu button {
-            margin: 0 10px; padding: 8px 15px; border: none; background: transparent; cursor: pointer;
-            color: var(--primary); font-weight: 700; font-size: 0.9rem; border-radius: 20px; transition: all 0.3s ease;
-        }
-        .theme-menu button:hover {
-            background: var(--primary); color: white; transform: translateY(-2px);
+            border: 1px solid var(--primary); background: transparent; cursor: pointer;
+            border-radius: 15px; padding: 4px 10px; font-size: 0.8rem; color: var(--text);
         }
         .dropdown-menu {
             display: none;
@@ -144,11 +72,6 @@
             width: 100%;
             margin: 5px 0;
             text-align: left;
-            border: none; background: transparent; cursor: pointer;
-            color: var(--text); font-weight: 500; font-size: 0.9rem; border-radius: 10px; padding: 5px 10px; transition: all 0.3s ease;
-        }
-        .dropdown-menu button:hover {
-            background: var(--primary); color: white;
         }
 
         /* --- 4. TICKER & HEADER --- */
@@ -208,25 +131,7 @@
         .wa-float { position: fixed; bottom: 30px; left: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: 700; box-shadow: 0 10px 20px rgba(0,0,0,0.1); z-index: 2000; }
         #backToTop { position: fixed; bottom: 30px; right: 30px; background: var(--text); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; display: none; z-index: 2000; }
 
-        @media (max-width: 900px) { 
-            .main-wrapper { grid-template-columns: 1fr; } 
-            .logo { width: 60px; height: 60px; }
-            .navbar { padding: 10px 15px; }
-            .main-menu button, .theme-menu button { font-size: 0.8rem; padding: 6px 12px; }
-            .content-card { padding: 30px 15px; }
-            .hero-img { height: 300px; }
-            .gallery { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
-            .yearly-calendar { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
-        }
-        @media (max-width: 600px) {
-            .navbar { padding: 8px 10px; }
-            .main-menu button, .theme-menu button { font-size: 0.7rem; padding: 5px 10px; margin: 0 5px; }
-            .ticker { font-size: 0.8rem; }
-            header { padding: 60px 15px; }
-            .main-wrapper { padding: 0 10px; }
-            .wa-float { bottom: 20px; left: 20px; padding: 12px 20px; font-size: 0.8rem; }
-            #backToTop { bottom: 20px; right: 20px; width: 40px; height: 40px; }
-        }
+        @media (max-width: 900px) { .main-wrapper { grid-template-columns: 1fr; } .logo { width: 60px; height: 60px; } }
     </style>
 </head>
 <body>
@@ -238,13 +143,10 @@
     </div>
 
     <nav class="navbar">
-        <div class="main-menu">
-            <button onclick="toggleMainMenu()">Menu</button>
-            <div class="main-dropdown" id="mainDropdown">
-                <button onclick="scrollToSection('about')">Tentang</button>
-                <button onclick="scrollToSection('gallery')">Galeri</button>
-                <button onclick="scrollToSection('calendar')">Kalender</button>
-            </div>
+        <div class="nav-links">
+            <a href="#about">Tentang</a>
+            <a href="#gallery">Galeri</a>
+            <a href="#calendar">Kalender</a>
         </div>
         <div class="theme-menu">
             <button class="dropdown-toggle" onclick="toggleThemeMenu()">Tema</button>
@@ -252,7 +154,6 @@
                 <button onclick="changeTheme('sunny')">Terang</button>
                 <button onclick="changeTheme('night')">Gelap</button>
                 <button onclick="changeTheme('nature')">Natural</button>
-                <button onclick="changeTheme('zen')">Zen Garden</button>
             </div>
         </div>
     </nav>
@@ -322,24 +223,14 @@
     <script>
         // 1. THEME SWITCHER
         function changeTheme(theme) {
-            document.body.classList.remove('night-theme', 'nature-theme', 'zen-theme');
+            document.body.classList.remove('night-theme', 'nature-theme');
             if (theme === 'night') document.body.classList.add('night-theme');
             if (theme === 'nature') document.body.classList.add('nature-theme');
-            if (theme === 'zen') document.body.classList.add('zen-theme');
         }
 
         function toggleThemeMenu() {
             const menu = document.getElementById('themeDropdown');
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function toggleMainMenu() {
-            const menu = document.getElementById('mainDropdown');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-        }
-
-        function scrollToSection(id) {
-            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
         }
 
         // 2. ACCURATE 2025-2026 CALENDAR (July 1, 2025 to June 30, 2026)
