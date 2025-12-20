@@ -186,7 +186,7 @@
             </section>
 
             <section id="calendar" style="margin-top: 50px;">
-                <h2>Kalender Akademik 2026</h2>
+                <h2>Kalender Akademik 2025-2026</h2>
                 <div class="yearly-calendar" id="calendarGrid"></div>
                 <div class="calendar-legend">
                     <div><span class="dot" style="background:var(--accent)"></span> Holiday</div>
@@ -197,8 +197,8 @@
         </div>
 
         <aside class="content-card fade-in" style="height: fit-content; animation-delay: 0.6s;">
-            <h3>Kontak Kami</h3>
-            <p>Kirim pesan ke WhatsApp kami.</p>
+            <h3>Hubungi Kami</h3>
+            <p>Kirim pesan ke WhatsApp kami:</p>
             <form id="contactForm">
                 <input type="text" id="waName" placeholder="Your Name" required>
                 <textarea id="waMsg" placeholder="Your Message..." rows="4" required></textarea>
@@ -213,11 +213,11 @@
         </aside>
     </div>
 
-    <a href="https://wa.me/1234567890" class="wa-float" target="_blank">Chat Now</a>
+    <a href="https://wa.me/1234567890" class="wa-float" target="_blank">WA Kami</a>
     <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
     <footer style="background: #2D3436; color: white; padding: 60px 20px; text-align: center; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);">
-        <p>&copy; SDN 100705 Sipenggeng. <br> Inpirasi desain dari CSS Zen Garden.</p>
+        <p>&copy; SDN 100705 Sipenggeng. </p>
     </footer>
 
     <script>
@@ -233,23 +233,31 @@
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
 
-        // 2. ACCURATE 2026 CALENDAR (Jan 1, 2026 = Thursday)
-        const events = { "Januari": { 1: "holiday", 19: "holiday" }, "June": { 10: "exam" }, "March": { 15: "school-event" } };
+        // 2. ACCURATE 2025-2026 CALENDAR (July 1, 2025 to June 30, 2026)
+        const events = { "Januari": { 1: "holiday", 19: "holiday" }, "Juni": { 10: "exam" }, "Maret": { 15: "school-event" } };
         const months = [
-            { name: "January", days: 31 }, { name: "February", days: 28 }, { name: "March", days: 31 },
-            { name: "April", days: 30 }, { name: "May", days: 31 }, { name: "June", days: 30 },
-            { name: "July", days: 31 }, { name: "August", days: 31 }, { name: "September", days: 30 },
-            { name: "October", days: 31 }, { name: "November", days: 30 }, { name: "December", days: 31 }
+            { name: "Juli", month: 6, year: 2025, days: 31 },
+            { name: "Agustus", month: 7, year: 2025, days: 31 },
+            { name: "September", month: 8, year: 2025, days: 30 },
+            { name: "Oktober", month: 9, year: 2025, days: 31 },
+            { name: "November", month: 10, year: 2025, days: 30 },
+            { name: "Desember", month: 11, year: 2025, days: 31 },
+            { name: "Januari", month: 0, year: 2026, days: 31 },
+            { name: "Februari", month: 1, year: 2026, days: 28 },
+            { name: "Maret", month: 2, year: 2026, days: 31 },
+            { name: "April", month: 3, year: 2026, days: 30 },
+            { name: "Mei", month: 4, year: 2026, days: 31 },
+            { name: "Juni", month: 5, year: 2026, days: 30 }
         ];
 
         const grid = document.getElementById('calendarGrid');
         months.forEach((m, idx) => {
-            const firstDay = new Date(2026, idx, 1).getDay(); // Accurate Day Calculation
+            const firstDay = new Date(m.year, m.month, 1).getDay(); // Accurate Day Calculation
             let html = `<div class="month-box fade-in" style="animation-delay: ${0.8 + (idx * 0.1)}s">
                 <span class="month-name">${m.name}</span>
                 <div class="days-grid">
-                    <div class="day-header">S</div><div class="day-header">M</div><div class="day-header">T</div>
-                    <div class="day-header">W</div><div class="day-header">T</div><div class="day-header">F</div><div class="day-header">S</div>`;
+                    <div class="day-header">M</div><div class="day-header">S</div><div class="day-header">S</div>
+                    <div class="day-header">R</div><div class="day-header">K</div><div class="day-header">J</div><div class="day-header">S</div>`;
             
             for (let i = 0; i < firstDay; i++) html += `<div class="day"></div>`;
             for (let i = 1; i <= m.days; i++) {
