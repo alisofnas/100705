@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laman SDN 100705 Sipenggeng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         /* --- 1. THEME VARIABLES (ZEN GARDEN CORE) --- */
@@ -34,7 +33,6 @@
             --glass: rgba(255,255,255,0.9);
             --bg-gradient: linear-gradient(135deg, #daede2 0%, #77c4d3 100%);
             --text: #333;
-            font-family: "tablet-gothic", verdana, arial, sans-serif;
         }
 
         body.zen-theme h1 {
@@ -42,11 +40,11 @@
         }
 
         body.zen-theme h2 {
-            color: #fff; font-weight: 900; font-size: 3em; letter-spacing: 1px; line-height: 1em;
+            color: #fff; font-weight: 900; font-size: 2rem; letter-spacing: 1px; line-height: 1em;
         }
 
         body.zen-theme h3 {
-            font-family: "tablet-gothic-condensed", "arial narrow", arial, verdana, sans-serif; font-weight: 200; font-size: 1.5em; letter-spacing: 1px;
+            font-weight: 200; font-size: 1.25rem; letter-spacing: 1px;
         }
 
         body.zen-theme .content-card {
@@ -71,9 +69,15 @@
         /* --- 3. GLOBAL & NAV --- */
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Quicksand', sans-serif; background: var(--bg-gradient);
+            font-family: Arial, sans-serif; background: var(--bg-gradient);
             margin: 0; color: var(--text); transition: all 0.5s ease; min-height: 100vh;
+            font-size: 16px;
         }
+
+        h1 { font-size: 2rem; font-weight: bold; }
+        h2 { font-size: 1.5rem; font-weight: bold; }
+        h3 { font-size: 1.25rem; font-weight: bold; }
+        p { font-size: 1rem; line-height: 1.5; }
 
         .navbar {
             position: sticky; top: 0; background: var(--glass); backdrop-filter: blur(12px);
@@ -285,7 +289,7 @@
             </section>
 
             <section id="calendar" style="margin-top: 50px;">
-                <h2>Kalender Akademik 2025-2026</h2>
+                <h2>Kalender TA 2025/2026</h2>
                 <div class="yearly-calendar" id="calendarGrid"></div>
                 <div class="calendar-legend">
                     <div><span class="dot" style="background:var(--accent)"></span> Holiday</div>
@@ -312,7 +316,7 @@
         </aside>
     </div>
 
-    <a href="https://wa.me/1234567890" class="wa-float" target="_blank">WA Kami</a>
+    <a href="https://wa.me/6288888888888" class="wa-float" target="_blank">WA Kami</a>
     <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
     <footer style="background: #2D3436; color: white; padding: 60px 20px; text-align: center; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);">
@@ -381,7 +385,7 @@
             e.preventDefault();
             const n = document.getElementById('waName').value;
             const m = document.getElementById('waMsg').value;
-            window.open(`https://wa.me/1234567890?text=Name: ${n}%0A${m}`, '_blank');
+            window.open(`https://wa.me/6288888888888?text=Name: ${n}%0A${m}`, '_blank');
         });
 
         // 4. SCROLL LOGIC
