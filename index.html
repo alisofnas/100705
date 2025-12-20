@@ -173,6 +173,10 @@
 
         .calendar-legend { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 20px; font-size: 0.8rem; justify-content: center; }
         .dot { height: 10px; width: 10px; border-radius: 50%; display: inline-block; }
+        .event-descriptions { margin-top: 30px; padding: 20px; background: var(--glass); border-radius: 15px; }
+        .event-descriptions h4 { margin-top: 0; color: var(--primary); }
+        .description-item { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
+        .description-item strong { color: var(--primary); }
 
         /* --- 8. FORMS & BUTTONS --- */
         input, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 10px; font-family: inherit; box-sizing: border-box; }
@@ -283,6 +287,7 @@
                     <div><span class="dot" style="background:var(--secondary)"></span> Event</div>
                     <div><span class="dot" style="background:var(--primary)"></span> Exam</div>
                 </div>
+                <div class="event-descriptions" id="eventDescriptions"></div>
             </section>
         </div>
 
@@ -334,6 +339,11 @@
 
         // 2. ACCURATE 2025-2026 CALENDAR (July 1, 2025 to June 30, 2026)
         const events = { "Januari": { 1: "holiday", 19: "holiday" }, "Juni": { 10: "exam" }, "Maret": { 15: "school-event" } };
+        const eventDescriptions = {
+            "Januari": { 1: "New Year Holiday (Libur Tahun Baru)", 19: "Religious Holiday (Hari Libur Agama)" },
+            "Juni": { 10: "Final Exams (Ujian Akhir Semester)" },
+            "Maret": { 15: "School Sports Day (Hari Olahraga Sekolah)" }
+        };
         const months = [
             { name: "Juli", month: 6, year: 2025, days: 31 },
             { name: "Agustus", month: 7, year: 2025, days: 31 },
@@ -367,6 +377,21 @@
                 html += `<div class="day ${e}">${i}</div>`;
             }
             grid.innerHTML = html + `</div></div>`;
+
+            // Update event descriptions for the current month
+            const descDiv = document.getElementById('eventDescriptions');
+            if (eventDescriptions[m.name]) {
+                let descHtml = `<h4>📅 ${m.name} Events:</h4>`;
+                const monthEvents = eventDescriptions[m.name];
+                for (const date in monthEvents) {
+                    const eventType = events[m.name][date];
+                    const typeLabel = eventType === 'holiday' ? '🔴 Holiday' : eventType === 'school-event' ? '🟡 Event' : eventType === 'exam' ? '🔵 Exam' : '';
+                    descHtml += `<div class="description-item">${typeLabel} <strong>${m.name} ${date}:</strong> ${monthEvents[date]}</div>`;
+                }
+                descDiv.innerHTML = descHtml;
+            } else {
+                descDiv.innerHTML = `<p style="color: #999; text-align: center;">No events scheduled for ${m.name}</p>`;
+            }
         }
 
         // Initialize with July 2025 (index 0)
