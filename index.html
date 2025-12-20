@@ -200,7 +200,7 @@
             .navbar { padding: 8px 10px; }
             .main-menu button, .theme-menu button { font-size: 0.7rem; padding: 5px 10px; margin: 0 5px; }
             .ticker { font-size: 0.8rem; }
-            header { padding: 30px 15px 60px 15px; }
+            header { padding: 30px 15px 70px 15px; }
             .main-wrapper { padding: 0 10px; }
             .wa-float { bottom: 20px; left: 20px; padding: 12px 20px; font-size: 0.8rem; }
             #backToTop { bottom: 20px; right: 20px; width: 40px; height: 40px; }
@@ -211,7 +211,7 @@
 
     <div class="ticker-wrap">
         <div class="ticker">
-            📢 Welcome to the 2026 Academic Year! &nbsp;&nbsp;&nbsp;&nbsp; 📚 Book Fair: March 15th &nbsp;&nbsp;&nbsp;&nbsp; 🚌 Field Trip Forms due this Friday!
+            📢 Bayarlah hutang puasa dan segala hutang lainnya tepat waktu! &nbsp;&nbsp;&nbsp;&nbsp; 📚 Kepada para siswa agar mengembalikan semua buku yang dipinjam. &nbsp;&nbsp;&nbsp;&nbsp; 🚌 Libur sekolah mulai 21 Desember 2025 hingga 4 Januari 2026.
         </div>
     </div>
 
@@ -249,7 +249,7 @@
                 <h2>Sambutan Kepala Sekolah</h2>
                 <div style="overflow: hidden;">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop" alt="Principal" style="float: left; margin: 0 20px 10px 0; border-radius: 15px; width: 120px;">
-                    <p>Welcome to SDN 100705 Sipenggeng! Our goal is to blend technology with traditional values to create a unique learning experience for every child. In 2026, we are launching new STEM initiatives and art programs that will define the next decade of education.</p>
+                    <p>Selamat datang di SDN 100705 Sipenggeng! Tujuan kami adalah memadukan teknologi dengan nilai-nilai tradisional untuk menciptakan pengalaman belajar yang unik bagi setiap anak. Pada tahun 2026, kami meluncurkan inisiatif STEM dan program seni baru yang akan menentukan dekade pendidikan berikutnya.</p>
                 </div>
             </section>
 
@@ -308,7 +308,7 @@
         </aside>
     </div>
 
-    <a href="https://wa.me/6288888888888" class="wa-float" target="_blank">WA Kami</a>
+    <a href="https://wa.me/6288888888888" class="wa-float" target="_blank">WhatsApp</a>
     <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
     <footer style="background: #2D3436; color: white; padding: 60px 20px; text-align: center; clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);">
@@ -389,7 +389,7 @@
                 const monthEvents = eventDescriptions[m.name];
                 for (const date in monthEvents) {
                     const eventType = events[m.name][date];
-                    const typeLabel = eventType === 'holiday' ? '🔴 Holiday' : eventType === 'school-event' ? '🟡 Event' : eventType === 'exam' ? '🔵 Exam' : '';
+                    const typeLabel = eventType === 'holiday' ? '<span class="dot" style="background:var(--accent)"></span> ' : eventType === 'school-event' ? '<span class="dot" style="background:var(--secondary)"></span> ' : eventType === 'exam' ? '<span class="dot" style="background:var(--primary)"></span>' : '';
                     descHtml += `<div class="description-item">${typeLabel} <strong>${m.name} ${date}:</strong> ${monthEvents[date]}</div>`;
                 }
                 descDiv.innerHTML = descHtml;
